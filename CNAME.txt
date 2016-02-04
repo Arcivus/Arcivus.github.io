@@ -1,1 +1,1 @@
-http://arcivus.github.io/
+arcivus.github.io
