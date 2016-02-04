@@ -1,0 +1,65 @@
+<html>
+<head>
+<link rel='stylesheet' href='style.css'>		
+</head>
+
+<body>
+	<section id='nutritionApp'>
+		<header id='header'>
+			<h2>Food calendar</h2>
+			Food: <input id='searchField' placeholder='start typing food name' value=''>
+			Weight: <input id='weightField' value='100'> grams
+			<button id='submitFood'>Submit</button>
+			<div id='kcalInfo'><input id='kcalPerHundred' value=""></input> kcal per 100g</div>
+			<ul id='searchMenu'></ul>
+		</header>
+
+		<section id='main'>
+			<ul id='foodList'></ul>
+		</section>
+
+		<footer id='footer'>
+			
+		</footer>
+	</section>
+	<div id='info'>
+		<p>Double click to edit list item</p>
+		<p>Written by <a href='https://github.com/Arcivus'>Sergey Kozhurkin</a></p>
+		<p>Powered by <a href='http://www.nutritionix.com/business/api'>Nutritionix API</a></p>
+	</div>
+
+
+	<script type='text/template' id='search-template'>
+		<label><%=name%>(<i><%=brand%></i>), <%=kcal%> kcalories per 100 grams</label>
+	</script>
+
+	<script type='text/template' id='food-template'>
+		<div class='view'>
+			<label><%=name%>, <%=weight%>grams, <%=kcal%> kcal</label>
+			<button class='destroy'>delete</button>
+		</div>
+		<input class='editName' value='<%= name %>'>
+		<input class='editWeight' value='<%= weight %>'>
+		<input class='editKcal' value='<%= kcal %>'>
+	</script>
+
+	<script type='text/template' id='stats-template'>
+		<span id='totalKcal'><strong><%=totalKcal%></strong> kcal total.</span>
+		<button id='addPage'>Add page</button>
+	</script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+	<script src="js/backbone.localStorage-min.js"></script>
+
+	<script src="js/collections/foods.js"></script>
+	<script src="js/collections/searchResults.js"></script>
+	<script src="js/views/foodView.js"></script>
+	<script src="js/views/AppView.js"></script>
+	<script src="js/views/searchItemView.js"></script>
+	<script src="js/views/searchView.js"></script>
+	<script src="js/app.js"></script>
+		
+</body>
+</html>
