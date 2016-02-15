@@ -4,7 +4,8 @@ app.Food = Backbone.Model.extend({
 	defaults:{
 		name: '',
 		weight:'0',
-		kcal:'0'
+		kcal:'0',
+		page: '1'
 	}
 });
 
@@ -13,10 +14,8 @@ var FoodList = Backbone.Collection.extend({
 
 	localStorage: new Backbone.LocalStorage('foods-backbone'),
 
-	calculateTotalKcal: function(){
-		return this.reduce(function(result, food){
-			return result + food.get('kcal')
-		}, 0);
+	getFiltered: function(){
+		return this.where({page: app.FoodFilter});
 	}
 
 });

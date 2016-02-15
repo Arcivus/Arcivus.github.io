@@ -62,7 +62,7 @@ app.SearchView = Backbone.View.extend({
 			var name = item.fields.item_name;
 			var brand = item.fields.brand_name;
 
-			var servingSize = item.fields.nf_serving_size_qty; // number of ozs
+			var servingSize = item.fields.nf_serving_size_qty; // number of ozs in database
 			var kcalInList = item.fields.nf_calories; //kcal extracted from database
 			var kcal = self.recalculateKcal(kcalInList, servingSize)// recalculate kcal for 100g of product
 			if((app.SearchResults.length) <10){

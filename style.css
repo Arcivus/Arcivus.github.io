@@ -12,3 +12,9 @@
 	width: 600px;
 	font-size: 20px;
 }
+.hidden{
+	display: none;
+}
+.selected{
+	background-color: #E3E3E3;
+}

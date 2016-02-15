@@ -15,7 +15,7 @@ app.FoodView = Backbone.View.extend({
 	},
 
 	initialize: function(){
-
+		this.listenTo(this.model, 'visible', this.toggleVisible);
 	},
 
 	render: function(){
@@ -45,6 +45,14 @@ app.FoodView = Backbone.View.extend({
 		this.$editName.show().focus();
 		this.$editWeight.show();
 		this.$editKcal.show();
+	},
+
+	toggleVisible: function(){
+		this.$el.toggleClass('hidden', this.isHidden());
+	},
+
+	isHidden: function(){
+		return (this.model.get('page') !== app.FoodFilter);
 	},
 
 	close: function(){
