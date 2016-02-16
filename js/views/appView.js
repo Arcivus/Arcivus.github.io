@@ -29,12 +29,9 @@ app.AppView = Backbone.View.extend({
 		var totalKcal = 0;
 		_.each(app.Foods.getFiltered(), function(food){
 			totalKcal += food.get('kcal');
-		})
-		if(app.Foods.length){
-			this.$footer.html(this.statsTemplate({totalKcal: totalKcal}));
-		} else{
-			this.$footer.html('');
-		}
+		});
+
+		this.$footer.html(this.statsTemplate({totalKcal: totalKcal}));
 	},
 
 	addOne: function(food){

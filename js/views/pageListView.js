@@ -10,6 +10,7 @@ app.PageListView = Backbone.View.extend({
 	initialize: function(){
 		this.listenTo(app.Pages, 'add', this.addOne);
 		this.listenTo(app.Pages, 'reset', this.addAll);
+		this.listenTo(app.Pages, 'all', this.render);
 		this.listenTo(app.Foods, 'all', this.addAll);
 		this.listenTo(app.Foods, 'all', this.render);
 
@@ -20,6 +21,10 @@ app.PageListView = Backbone.View.extend({
 		this.$('#filters li a').removeClass('selected')
 								  .filter('[href="#/' + app.FoodFilter + '"]')
 								  .addClass('selected');
+
+		if(!app.Pages.length){
+			app.Pages.create();
+		}
 	},
 
 	addOne: function(page){

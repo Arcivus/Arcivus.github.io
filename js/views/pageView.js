@@ -25,5 +25,7 @@ app.PageView = Backbone.View.extend({
 		_.each(app.Foods.where({page: value}), function(food){
 			food.destroy()
 		});
+
+		app.FoodRouter.navigate('#/1');// !!!
 	}
 });
