@@ -62,9 +62,9 @@ app.AppView = Backbone.View.extend({
 		if((name) && !isNaN(weight) && !isNaN(kcalPerHund)){
 			var kcal = Math.round((kcalPerHund/100) * weight);
 
-			app.Foods.create({name: name, weight: weight, kcal: kcal, page: getDate()});
-			app.FoodRouter.setFilter(getDate());
-			app.FoodRouter.navigate(getDate());
+			app.Foods.create({name: name, weight: weight, kcal: kcal, page: app.FoodFilter});
+
+			
 
 			this.$inputName.val('');
 			this.$inputWeight.val('100');
