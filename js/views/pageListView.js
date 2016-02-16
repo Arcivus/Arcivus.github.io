@@ -3,16 +3,13 @@ var app = app || {};
 app.PageListView = Backbone.View.extend({
 	el: "#nutritionApp",
 
-	events: {
-		'click #addPage': 'newPage'
-	},
-
 	initialize: function(){
 		this.listenTo(app.Pages, 'add', this.addOne);
 		this.listenTo(app.Pages, 'reset', this.addAll);
 		this.listenTo(app.Pages, 'all', this.render);
 		this.listenTo(app.Foods, 'all', this.addAll);
 		this.listenTo(app.Foods, 'all', this.render);
+		this.listenTo(app.Foods, 'add', this.newPage);
 
 		app.Pages.fetch();
 	},
@@ -21,10 +18,6 @@ app.PageListView = Backbone.View.extend({
 		this.$('#filters li a').removeClass('selected')
 								  .filter('[href="#/' + app.FoodFilter + '"]')
 								  .addClass('selected');
-
-		if(!app.Pages.length){
-			app.Pages.create();
-		}
 	},
 
 	addOne: function(page){
@@ -37,12 +30,20 @@ app.PageListView = Backbone.View.extend({
 		app.Pages.each(this.addOne, this);
 	},
 
+	isDateExists: function(){
+		var exists = false;
+		var today = getDate();
+		app.Pages.each(function(page){
+			if(page.get('title') === today){
+				exists = true;
+			}
+		})
+		return exists;
+	},
+
 	newPage: function(){
-		if(app.Pages.length){
-			var value = parseInt(app.Pages.last().get('title')) + 1;
-			app.Pages.create({title: value});
-		} else{
-			app.Pages.create();
-		}
+		if(!this.isDateExists()){
+			app.Pages.create({title: getDate()});
+		} 
 	}
 });

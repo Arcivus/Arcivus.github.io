@@ -2,7 +2,7 @@ var app = app || {};
 
 app.Page = Backbone.Model.extend({
 	defaults: {
-		title: 1
+		title: '1'
 	}
 });
 
