@@ -9,7 +9,7 @@ app.PageListView = Backbone.View.extend({
 		this.listenTo(app.Pages, 'all', this.render);
 		this.listenTo(app.Foods, 'all', this.addAll);
 		this.listenTo(app.Foods, 'all', this.render);
-		this.listenTo(app.Foods, 'add', this.newPage);
+
 
 		app.Pages.fetch();
 	},

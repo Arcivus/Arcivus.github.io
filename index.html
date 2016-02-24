@@ -1,19 +1,29 @@
 <html>
 <head>
-<link rel='stylesheet' href='style.css'>		
+	<meta charset='utf-8'/>	
+	<link rel='stylesheet' href='style.css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400italic,400' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
 	<section id='nutritionApp'>
 		<header id='header'>
-			<h2>Food calendar</h2>
-			Food: <input id='searchField' placeholder='start typing food name' value=''>
-			Weight: <input id='weightField' value='100'> grams
-			<button id='submitFood'>Submit</button>
-			<div id='kcalInfo'><input id='kcalPerHundred' value=""></input> kcal per 100g</div>
-			<ul id='searchMenu'></ul>
+			<h1>Food calendar</h1>
+			<section id='search'>
+				<div class='row' id='food'>Food: <input id='searchField' placeholder='start typing food name' value=''> 
+				<div id='submitFood'><input type='submit' name='' value=''></div>
+				</div>
 
-
+				<div class='row'>
+					<div class='col-2'>
+						Weight: <input id='weightField' value='100'> <span>grams</span>
+					</div>
+					<div class='col-2'>
+						kcal: <input id='kcalPerHundred' value=""></input> <span>per 100g</span>
+					</div>
+				</div>
+				<ul id='searchMenu'></ul>
+			</section>
 		</header>
 
 		<section id='main'>
@@ -33,13 +43,15 @@
 
 
 	<script type='text/template' id='search-template'>
-		<label><%=name%>(<i><%=brand%></i>), <%=kcal%> kcalories per 100 grams</label>
+		<div class='searchItem'>
+			<label><%=name%>(<i><%=brand%></i>), <%=kcal%> kcalories per 100 grams</label>
+		</div>
 	</script>
 
 	<script type='text/template' id='food-template'>
-		<div class='view'>
+		<div class='food-view'>
 			<label><%=name%>, <%=weight%>grams, <%=kcal%> kcal</label>
-			<button class='destroy'>delete</button>
+			<button class='destroy'></button>
 		</div>
 		<input class='editName' value='<%= name %>'>
 		<input class='editWeight' value='<%= weight %>'>
@@ -49,12 +61,13 @@
 	<script type='text/template' id='stats-template'>
 		<span id='totalKcal'><strong><%=totalKcal%></strong> kcal total.</span>
 		<ul id='filters'></ul>
-
 	</script>
 
 	<script type='text/template' id='page-template'>
-		<a href='#/<%=title%>'><%=title%></a>
-		<button class='destroy'>delete</button>
+		<div class='page-view'>
+			<a href='#/<%=title%>'><%=title%></a>
+			<button class='destroy'></button>
+		</div>
 	</script>
 
 

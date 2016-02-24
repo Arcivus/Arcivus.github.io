@@ -28,12 +28,12 @@ $(function(){
 	var pages = new app.PageListView();
 
 	if(!app.Pages.length){
-		app.Pages.create({title: '13/02/2016'});
-		app.Pages.create({title: '14/02/2016'});
-		app.Foods.create({name: 'French fries', weight: 100, kcal: 470, page: '13/02/2016'});
-		app.Foods.create({name: 'Boiled beef', weight: 200, kcal: 390, page: '13/02/2016'});
-		app.Foods.create({name: 'Apple Cider', weight: 300, kcal: 200, page: '14/02/2016'});
-		app.Foods.create({name: 'Strawberry jam', weight: 50, kcal: 190, page: '14/02/2016'});
+		app.Pages.create({title: '20/02/2016'});
+		app.Pages.create({title: '21/02/2016'});
+		app.Foods.create({name: 'French fries', weight: 100, kcal: 470, page: '20/02/2016'});
+		app.Foods.create({name: 'Boiled beef', weight: 200, kcal: 390, page: '20/02/2016'});
+		app.Foods.create({name: 'Apple Cider', weight: 300, kcal: 200, page: '21/02/2016'});
+		app.Foods.create({name: 'Strawberry jam', weight: 50, kcal: 190, page: '21/02/2016'});
 
 	};
 	pages.newPage();

@@ -6,9 +6,7 @@ app.SearchItemView = Backbone.View.extend({
 	template: _.template($('#search-template').html()),
 
 	events:{
-		'click label': 'chooseItem',
-		'mouseover label': 'highlightItem',
-		'mouseout label': 'removeHighlight'
+		'click .searchItem': 'chooseItem',
 	},
 
 	initialize: function(){
@@ -25,15 +23,5 @@ app.SearchItemView = Backbone.View.extend({
 		$('#kcalPerHundred').attr('value', this.model.get('kcal'));
 		$('#kcalPerHundred').val(this.model.get('kcal'));
 		this.model.destroy();
-	},
-
-	highlightItem: function(){
-		this.$el.css('background-color', '#AAD1D8');
-	},
-
-	removeHighlight: function(){
-		this.$el.css('background-color', '#d4d5d6');
 	}
-
-
 });
